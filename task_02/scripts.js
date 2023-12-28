@@ -34,8 +34,12 @@ function runScript() {
     hideAllFields(typeValSelect.value); // Изначально скрываем все, кроме выбранного
 }
 
-// Проверяем, загружена ли DOM, если да, запускаем основной скрипт
-document.addEventListener('DOMContentLoaded', function () {
-    runScript(); // Запускаем основной скрипт
-});
+// Проверяем, выполнено ли событие DOMContentLoaded
+if (document.readyState === 'loading') {
+    // Если нет, добавляем обработчик
+    document.addEventListener('DOMContentLoaded', runScript);
+} else {
+    // Если уже выполнено, запускаем скрипт сразу
+    runScript();
+}
 
