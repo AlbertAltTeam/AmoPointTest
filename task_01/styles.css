@@ -1,0 +1,91 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+  min-width: 600px;
+  max-width: 90%;
+  margin: auto;
+}
+
+.success,
+.error {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.success {
+  background-color: green;
+}
+
+.error {
+  background-color: red;
+}
+
+.result {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+  border-radius: 15px; /* Закругление углов */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Тень для оторванности от экрана */
+}
+
+.hidden {
+  display: none;
+}
+#fileInput {
+  display: none;
+}
+
+/* Стили для кнопки выбора файла */
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  color: #333;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* добавляем анимацию transform */
+  animation: shake 0.4s ease-in-out infinite; /* добавляем анимацию тряски по умолчанию */
+}
+
+.custom-file-upload:hover {
+  background-color: #e0e0e0;
+  transform: none; /* отменяем анимацию тряски при наведении */
+  animation: none; /* отменяем анимацию тряски при наведении */
+}
+
+/* Анимация тряски */
+@keyframes shake {
+  0% {
+    transform: translateX(-2px);
+  }
+  25% {
+    transform: translateX(2px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(-2px);
+  }
+}
+
