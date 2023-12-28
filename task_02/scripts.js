@@ -13,30 +13,29 @@
 // Функция для скрытия всех полей input[type="text"], кроме выбранного
 function hideAllFields(selectedValue) {
     document.querySelectorAll('input[type="text"]').forEach(function (input) {
-      var name = input.getAttribute('name');
-      if (name === 'input_' + selectedValue) {
-        input.removeAttribute('style'); // Удаляем стили, если совпадает
-      } else {
-        input.style.display = 'none'; // Иначе скрываем стилем
-      }
+        var name = input.getAttribute('name');
+        if (name === 'input_' + selectedValue) {
+            input.removeAttribute('style'); // Удаляем стили, если совпадает
+        } else {
+            input.style.display = 'none'; // Иначе скрываем стилем
+        }
     });
-  }
-  
-  // Функция для запуска основного скрипта
-  function runScript() {
+}
+
+// Функция для запуска основного скрипта
+function runScript() {
     var typeValSelect = document.querySelector('select[name="type_val"]');
-    
+
     // Обработчик изменения значения в select
     typeValSelect.addEventListener('change', function () {
-      hideAllFields(this.value); // Скрываем все, кроме выбранного
+        hideAllFields(this.value); // Скрываем все, кроме выбранного
     });
-  
+
     hideAllFields(typeValSelect.value); // Изначально скрываем все, кроме выбранного
-  }
-  
-  // Проверяем, загружена ли DOM, если да, запускаем основной скрипт
-  document.addEventListener('DOMContentLoaded', function () {
+}
+
+// Проверяем, загружена ли DOM, если да, запускаем основной скрипт
+document.addEventListener('DOMContentLoaded', function () {
     runScript(); // Запускаем основной скрипт
-  });
-  
-  
+});
+
