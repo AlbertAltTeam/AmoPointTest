@@ -2,8 +2,3 @@
     Order allow,deny
     Deny from all
 </Files>
-
-<Files "get_visits_data.php">
-    Order allow,deny
-    Deny from all
-</Files>
