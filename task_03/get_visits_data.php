@@ -5,6 +5,11 @@ include 'db_connect.php';
 $sql = "SELECT DATE_FORMAT(visited_at, '%Y-%m-%d %H:00:00') as visit_hour, COUNT(DISTINCT ip) as unique_visits FROM visits GROUP BY visit_hour";
 $result = $conn->query($sql);
 
+if (!$result) {
+    die("Ошибка запроса: " . $conn->error); // Остановить скрипт и вывести ошибку
+}
+
+
 $visitsData = array();
 while ($row = $result->fetch_assoc()) {
     $visitsData[] = array(
