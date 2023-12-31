@@ -1,6 +1,6 @@
 // Функция для отправки данных на сервер
 function sendData(data) {
-    fetch('https://localhost/amopointtest/task_03/api/', {
+    fetch('https://albert.dev.alt-team.com/AmoPointTest/task_03/api/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
