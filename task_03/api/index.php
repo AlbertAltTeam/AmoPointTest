@@ -1,5 +1,11 @@
 <?php
 require_once('../db_connect.php');
+
+// Добавляем заголовки CORS для разрешения доступа с любых источников
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
 // Проверка, что запрос был отправлен методом POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Получение данных из тела запроса
@@ -10,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Получение данных о посетителе из запроса
         $ip = $data['ip'];
-
 
         $ch = curl_init('http://ip-api.com/json/' . $ip . '?lang=ru');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -41,3 +46,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo "Ошибка: Неподдерживаемый метод запроса";
 }
+?>
